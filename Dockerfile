@@ -17,6 +17,7 @@ RUN apt-get install -y \
     php5-xsl \
     php5-zmq
 RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/10-mcrypt.ini
+ADD ./conf/xdebug.ini /etc/php5/mods-available/xdebug.ini
 RUN apt-get install -y nodejs npm
 RUN apt-get install -y default-jre
 RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && chmod +x /usr/local/bin/composer
