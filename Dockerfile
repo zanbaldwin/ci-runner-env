@@ -1,4 +1,5 @@
 FROM zanderbaldwin/ubuntu-base:15.04
+MAINTAINER Zander Baldwin <hello@zanderbaldwin.com>
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y wget
@@ -21,5 +22,7 @@ ADD ./conf/xdebug.ini /etc/php5/mods-available/xdebug.ini
 RUN apt-get install -y nodejs npm
 RUN apt-get install -y default-jre
 RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && chmod +x /usr/local/bin/composer
+
+VOLUME [ "/root/.composer", "/root/.npm" ]
 
 CMD ["php", "-a"]
